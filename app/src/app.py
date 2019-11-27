@@ -1,0 +1,40 @@
+from flask import Flask
+from flask import request, jsonify
+from ts_core import TimeSeriesPredictor
+import joblib
+import pandas as pd
+
+app = Flask(__name__)
+
+
+def json2ts(json_data):
+    ts = pd.Series()
+    for dt, value in json_data.items():
+        ts[dt] = value
+    return ts
+
+
+@app.route('/api/train/', methods=['POST'])
+def train():
+    user_data = request.get_json(force=True)
+    ts_id = user_data['key']
+    user_ts = json2ts(user_data['points'])
+    predictor = TimeSeriesPredictor()
+    predictor.fit(user_ts)
+    joblib.dump(predictor, f'{ts_id}.pkl')
+    joblib.dump(user_ts, f'ts_{ts_id}.pkl')
+    return 'Model is succesfully trained'
+
+
+@app.route('/api/predict', methods=['GET'])
+def predict():
+    user_data = request.get_json(force=True)
+    ts_id = user_data['key']
+    predictor = joblib.load(f'{ts_id}.pkl')
+    ts = joblib.load(f'ts_{ts_id}.pkl')
+    value = predictor.predict_next(ts)
+    return value.to_json()
+
+
+if __name__ == "__main__":
+    app.run('0.0.0.0', 80)

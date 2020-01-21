@@ -1,5 +1,5 @@
 # ts_service
-Example of building web service serving time-series model inside.
+Example of building web service serving time-series model inside, made for students.
 
 ### build and run localy
 docker build -t ts_service .

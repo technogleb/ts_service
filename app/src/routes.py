@@ -1,10 +1,8 @@
-from flask import Flask
-from flask import request, jsonify
+from flask import current_app as app
+from flask import request
 from ts_core import TimeSeriesPredictor
 import joblib
 import pandas as pd
-
-app = Flask(__name__)
 
 
 def json2ts(json_data):
@@ -34,7 +32,3 @@ def predict():
     ts = joblib.load(f'ts_{ts_id}.pkl')
     value = predictor.predict_next(ts)
     return value.to_json()
-
-
-if __name__ == "__main__":
-    app.run('0.0.0.0', 80)

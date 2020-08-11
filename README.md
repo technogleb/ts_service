@@ -23,7 +23,8 @@ json_payload = {
 ```
 
 ```
-response: 200 Ok "Model is succesfully trained"
+response: 200 Ok   
+"Model is succesfully trained"
 ```
 
 * /api/predict/
@@ -35,5 +36,13 @@ json_payload = {
 ```
 
 ```
-response 200 Ok "{"2019-01-31": 13.6}"
+response 200 Ok
+"{"2019-01-31": 13.6}"
 ```
+
+### Tech stack
+* python3.7 tested
+* web framework - flask
+* wsgi-compatible app server - guncorn
+* ml stack - numpy, pandas, sklearn
+* containerization - docker

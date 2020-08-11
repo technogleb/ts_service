@@ -12,7 +12,7 @@ def json2ts(json_data):
     return ts
 
 
-@app.route('/api/train/', methods=['POST'])
+@app.route('/api/train/', methods=['POST'], strict_slashes=False)
 def train():
     user_data = request.get_json(force=True)
     ts_id = user_data['key']
@@ -24,7 +24,7 @@ def train():
     return 'Model is succesfully trained'
 
 
-@app.route('/api/predict', methods=['GET'])
+@app.route('/api/predict_next', methods=['GET'], strict_slashes=False)
 def predict():
     user_data = request.get_json(force=True)
     ts_id = user_data['key']

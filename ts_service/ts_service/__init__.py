@@ -9,6 +9,6 @@ def create_app(test_config=None):
         app.config.from_object('config.BaseConfig', )
 
     with app.app_context():
-        from src import routes
+        from ts_service import routes
 
     return app

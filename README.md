@@ -12,12 +12,12 @@ docker run -it -p 80:80 ts_service
 
 ```
 json_payload = {  
-"key": "test_timeseries",  
-"points": {  
-    "2019-01-01": 12.9  
-    "2019-01-02": 13.6  
-    ...  
-    "2019-01-30": 12.5  
+    "key": "test_timeseries",  
+    "points": {  
+        "2019-01-01": 12.9  
+        "2019-01-02": 13.6  
+        ...  
+        "2019-01-30": 12.5  
     }   
 }
 ```
@@ -30,7 +30,7 @@ response: 200 Ok "Model is succesfully trained"
 
 ```
 json_payload = {  
-&nbsp;&nbsp;&nbsp;&nbsp;"key": "test_timeseries"  
+    "key": "test_timeseries"  
 }  
 ```
 

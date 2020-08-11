@@ -28,8 +28,16 @@ def train():
 def predict():
     user_data = request.get_json(force=True)
     ts_id = user_data['key']
-    predictor = joblib.load(f'{ts_id}.pkl')
-    ts = joblib.load(f'ts_{ts_id}.pkl')
+    try:
+        predictor = joblib.load(f'{ts_id}.pkl')
+    except FileNotFoundError:
+        raise FileNotFoundError(f"No model for provided time-series {ts_id}")
+
+    try:
+        ts = joblib.load(f'ts_{ts_id}.pkl')
+    except FileNotFoundError:
+        raise FileNotFoundError(f"No history_data for provided time-series {ts_id}")
+
     value = predictor.predict_next(ts)
     value.index = value.index.map(str)
     return value.to_json()

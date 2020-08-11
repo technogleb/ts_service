@@ -1,6 +1,11 @@
 # ts_service
 Example of building web service serving time-series model inside.
 
+### structure
+* ts_core is a stand-alone installable package, that contains source code
+for time series prediction model
+* ts_service contains simple web app code  
+
 ### build and run localy
 ```
 docker build -t ts_service .  

@@ -12,13 +12,13 @@ docker run -it -p 80:80 ts_service
 
 ```
 json_payload = {  
-&nbsp;&nbsp;&nbsp;&nbsp;"key": "test_timeseries",  
-&nbsp;&nbsp;&nbsp;&nbsp;"points": {  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"2019-01-01": 12.9  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"2019-01-02": 13.6  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"2019-01-30": 12.5  
-&nbsp;&nbsp;&nbsp;&nbsp;}   
+"key": "test_timeseries",  
+"points": {  
+    "2019-01-01": 12.9  
+    "2019-01-02": 13.6  
+    ...  
+    "2019-01-30": 12.5  
+    }   
 }
 ```
 

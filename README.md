@@ -8,7 +8,7 @@ for time series prediction model
 
 ### build and run localy
 ```
-docker build -t ts_service .  
+docker build -t ts_service -f docker/Dockerfile .  
 docker run -it -p 80:80 ts_service
 ```
 
@@ -33,7 +33,7 @@ response: 200 Ok
 "Model is succesfully trained"
 ```
 
-* /api/predict/  
+* /api/predict_next/  
 Allows user to make one-step-ahead prediction based on key
 
 ```

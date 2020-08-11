@@ -31,4 +31,5 @@ def predict():
     predictor = joblib.load(f'{ts_id}.pkl')
     ts = joblib.load(f'ts_{ts_id}.pkl')
     value = predictor.predict_next(ts)
+    value.index = value.index.map(str)
     return value.to_json()

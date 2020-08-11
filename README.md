@@ -8,7 +8,8 @@ docker run -it -p 80:80 ts_service
 ```
 
 ### API description
-* /api/train/
+* /api/train/  
+Allows user send his time series for training and saving data
 
 ```
 json_payload = {  
@@ -27,7 +28,8 @@ response: 200 Ok
 "Model is succesfully trained"
 ```
 
-* /api/predict/
+* /api/predict/  
+Allows user to make one-step-ahead prediction based on key
 
 ```
 json_payload = {  
